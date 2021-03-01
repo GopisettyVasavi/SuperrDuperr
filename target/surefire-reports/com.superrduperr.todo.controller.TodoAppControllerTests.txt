@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.superrduperr.todo.controller.TodoAppControllerTests
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.124 s <<< FAILURE! - in com.superrduperr.todo.controller.TodoAppControllerTests
-givenrequest_thengetListbyId_Status200(com.superrduperr.todo.controller.TodoAppControllerTests)  Time elapsed: 0.141 s  <<< FAILURE!
-java.lang.AssertionError: Status expected:<200> but was:<404>
-	at com.superrduperr.todo.controller.TodoAppControllerTests.givenrequest_thengetListbyId_Status200(TodoAppControllerTests.java:68)
-
