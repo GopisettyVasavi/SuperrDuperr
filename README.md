@@ -30,6 +30,22 @@ Understanding/Assumptions:
 
 2. UI implementation is not done as part of this code challenge. Only required REST API services are implemented.
 **************************************************************************************************************************************************
+
+Services implemented as part of initial release:
+
+	1. Get Todo List
+	2. Get Todo List by ListId
+	3. Get Todo Items by ListId
+	4. Get Todo Item by Item Id
+	5. Create Todo List
+	6. Create Todo Item
+	7. Mark Item (Mark as completed)
+	8. Delete Item(Soft Delete, changing Activation Flag to INACTIVE)
+	9. Restore Item (Changing the Activation Flag to ACTIVE)
+	10. Tag Multiple Items with the given tag
+	11. Tag Item with given tag
+	12. Add Remainder to Item (Assigning timestamp)
+****************************************************************************************************************************************************
 1. getlsits:
  Endpoint: localhost:8082/superrduperr/api/v1/todoLists
 Method Type: GET
