@@ -9,7 +9,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>superrduperr-list-api</name>
+	<name>SuperrDuperr</name>
 	<description>Superrduperr Todolist</description>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
