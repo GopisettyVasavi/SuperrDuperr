@@ -340,23 +340,16 @@ definitions:
   TodoList:
     type: "object"
     properties:
-      accountNo:
+      listId:
         type: "number"
-        format: "Account Number"
-      accountName:
+        format: "List Id"
+      listName:
         type: "string"
-        format: "Account Name"
-      accountType:
+        format: "List name"
+      status:
         type: "string"
-        format: "Account Type"
-      currency:
-        type: "string"
-        format: "Currency Code"
-      accountBalance:
-        type: "number"
-        format: "Account Balance"
-      customerId:
-        type: "number"
+        format: "Status of list"
+      
     xml:
       name: "TodoItem"
   TodoItems:
@@ -368,27 +361,27 @@ definitions:
   TodoItem:
     type: "object"
     properties:
-      transactionId:
+      itemId:
         type: "number"
-        format: "Transaction Id"
-      transactionType:
+        format: "Item Id"
+      itemName:
         type: "string"
-        format: "Transaction Type"
-      creditAmount:
-        type: "number"
-        format: "Credit Amount"
-      debitAmount:
-        type: "number"
-        format: "Debit Amount"
-      transactionNarrative:
+        format: "Item Name"
+      status:
         type: "string"
-        format: "Transaction Description"
-      transactionDate:
+        format: "Status of Item"
+      tagName:
         type: "string"
-        format: "Transaction Date"
-      accountNo:
+        format: "Tag assigned to the Item"
+      activationFlag:
+        type: "string"
+        format: "Activation status used in soft deletion"
+      remainder:
+        type: "string"
+        format: "Remainder timestamp"
+      listId:
         type: "number"
-        format: "Account No"
+        format: "List Id to which the item is associated"
       
     xml:
       name: "TodoItem"
