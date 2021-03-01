@@ -1,0 +1,394 @@
+swagger: "2.0"
+info:
+  description: "This is Superrduperr list services API."
+  version: "1.0.0"
+  title: "Swagger Superrduperr Service API"
+  contact:
+    email: "Vasasvi.vakkanti@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "superrduperr-service"
+basePath: "/"
+tags:
+- name: "SuperrDuperr Service API"
+  description: "Retrieve Todo List and Items"
+schemes:
+- "https"
+- "http"
+paths:
+  /superrduperr/api/v1/todoLists/:
+    get:
+      tags:
+      - "SuperrDuperrService"
+      summary: "Find  Todo List of Activities"
+      description: "Retrieve all Todo List"
+      operationId: "getAllTodoList"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoList"
+        "400":
+          description: "Bad Request"
+        
+  /superrduperr/api/v1/todoLists/{listId}:
+    get:
+      tags:
+      - "SuperrDuperrService"
+      summary: "Find  Todo List for the given listId"
+      description: "Find todo List with the given list Id."
+      operationId: "getListById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "listId"
+        in: "path"
+        description: "listId  that needs to be fetched"
+        required: true
+        type: "number"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoList"
+        "404":
+          description: "Invalid ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/createList/:
+    post:
+      tags:
+      - "todoList"
+      summary: "Create new todo List"
+      description: "Create new Todo List"
+      operationId: "createList"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "TodoList"
+        description: "New Todo List creation"
+        required: true
+        schema:
+            $ref: "#/definitions/TodoList"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Lists"
+        "404":
+          description: "Invalid ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/todoItems/{listId}:
+    get:
+      tags:
+      - "SuperrDuperrService"
+      summary: "Find items by given listId"
+      description: "Find Items for given list Id"
+      operationId: "getItemsByListId"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "listId"
+        in: "path"
+        description: "listId  that needs to be fetched"
+        required: true
+        type: "number"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItems"
+        "404":
+          description: "Invalid ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/todoItem/{itemId}:
+    get:
+      tags:
+      - "SuperrDuperrService"
+      summary: "Find items by given item Id"
+      description: "Find items by given Item Id"
+      operationId: "getItemsByItemId"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "itemId"
+        in: "path"
+        description: "itemId  that needs to be fetched"
+        required: true
+        type: "number"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/createItem/{listId}:
+    post:
+      tags:
+      - "todoItem"
+      summary: "Create new todo Item"
+      description: "Create new Todo Item"
+      operationId: "createItem"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "New Todo Item creation"
+        required: true
+        schema:
+            $ref: "#/definitions/TodoItem"
+      - in: "path"
+        name: "listId"
+        description: "listId  that needs to be fetched"
+        required: true
+        type: "number"      
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid List ID supplied"
+        "400":
+          description: "Bad Request"
+          
+  /superrduperr/api/v1/mark/{itemId}:
+    patch:
+      tags:
+      - "todoItem"
+      summary: "Mark todo Item as Completed"
+      description: "Mark Item as Completed"
+      operationId: "markItem"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "itemId"
+        description: "itemId  that needs to be fetched"
+        required: true
+        type: "number"      
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid Item ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/delete/{itemId}:
+    delete:
+      tags:
+      - "todoItem"
+      summary: "Delete given Item"
+      description: "Delete given Item"
+      operationId: "deleteItem"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "itemId"
+        description: "itemId  that needs to be fetched"
+        required: true
+        type: "number"      
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid Item ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/restore/{itemId}:
+    patch:
+      tags:
+      - "todoItem"
+      summary: "Restore given Item"
+      description: "Restore given Item"
+      operationId: "restoreItem"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "itemId"
+        description: "itemId  that needs to be fetched"
+        required: true
+        type: "number"      
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid Item ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/tagItems/{tagName}:
+    patch:
+      tags:
+      - "todoItem"
+      summary: "Tag given list of items with the given tagname"
+      description: "Tag given list of items with the given tagname"
+      operationId: "tagItems"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "item Id List"
+        description: "List of Item Ids that needs to be tagged"
+        required: true
+        schema:
+            $ref: "#/definitions/TodoItem"
+      - in: "path"
+        name: "tagName"
+        description: "Tag name to be assigned to the item"
+        required: true
+        type: "string"      
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid Item ID supplied"
+        "400":
+          description: "Bad Request" 
+  /superrduperr/api/v1/tagItem/{itemId}/{tagName}:
+    patch:
+      tags:
+      - "todoItem"
+      summary: "Tag given Item"
+      description: "Tag given Item"
+      operationId: "tagItem"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "itemId"
+        description: "Item Ids that needs to be tagged"
+        required: true
+        type: "number"
+      - in: "path"
+        name: "tagName"
+        description: "Tag name to be assigned to the item"
+        required: true
+        type: "string"      
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid Item ID supplied"
+        "400":
+          description: "Bad Request"
+  /superrduperr/api/v1/remainder/{itemId}/{remainder}:
+    patch:
+      tags:
+      - "todoItem"
+      summary: "Add remainder to item"
+      description: "Add remainder to item"
+      operationId: "addRemainder"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "itemId"
+        description: "Item Ids that needs to be added a remainder"
+        required: true
+        type: "number"
+      - in: "path"
+        name: "remainder"
+        description: "Remainder timestamp to be assigned to the item"
+        required: true
+        type: "string"      
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TodoItem"
+        "404":
+          description: "Invalid Item ID supplied"
+        "400":
+          description: "Bad Request"
+definitions:
+  Lists:
+   type: "object"
+   properties:
+    lists:
+      items:
+        $ref: '#/definitions/TodoList'
+  TodoList:
+    type: "object"
+    properties:
+      accountNo:
+        type: "number"
+        format: "Account Number"
+      accountName:
+        type: "string"
+        format: "Account Name"
+      accountType:
+        type: "string"
+        format: "Account Type"
+      currency:
+        type: "string"
+        format: "Currency Code"
+      accountBalance:
+        type: "number"
+        format: "Account Balance"
+      customerId:
+        type: "number"
+    xml:
+      name: "TodoItem"
+  TodoItems:
+   type: "object"
+   properties:
+    transactions:
+      items:
+        $ref: '#/definitions/TodoItem'
+  TodoItem:
+    type: "object"
+    properties:
+      transactionId:
+        type: "number"
+        format: "Transaction Id"
+      transactionType:
+        type: "string"
+        format: "Transaction Type"
+      creditAmount:
+        type: "number"
+        format: "Credit Amount"
+      debitAmount:
+        type: "number"
+        format: "Debit Amount"
+      transactionNarrative:
+        type: "string"
+        format: "Transaction Description"
+      transactionDate:
+        type: "string"
+        format: "Transaction Date"
+      accountNo:
+        type: "number"
+        format: "Account No"
+      
+    xml:
+      name: "TodoItem"
