@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: superrduperr-list-api
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Renaissance
+Implementation-Vendor-Id: com.superrduperr
+Build-Jdk: 1.8.0_241
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/superrduperr-list-api
+Created-By: Maven Integration for Eclipse
+
