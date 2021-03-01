@@ -101,7 +101,6 @@ Postman Output:
 ![](/images/createList1.png?raw=true)
 
 ![](/images/createList2.png?raw=true)
-
 4. getItemsByListId:
 	Endpoint: localhost:8082/superrduperr/api/v1/todoItems/{listId}
 	Method Type: GET
